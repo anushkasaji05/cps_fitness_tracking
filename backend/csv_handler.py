@@ -2,7 +2,7 @@
 import pandas as pd
 import os
 # File path for the CSV file
-FILE_PATH = '../input/data.csv'
+FILE_PATH = 'input/data.csv'
 
 def insert_record(record):
     """
@@ -60,7 +60,6 @@ def update_record(record):
     df.to_csv(FILE_PATH, index=False)
     return True
 
-
 def delete_record(username, date):
     """
     Deletes a record from the CSV file based on username and date.
@@ -87,4 +86,32 @@ def delete_record(username, date):
     # Save the updated DataFrame to the CSV file
     df.to_csv(FILE_PATH, index=False)
     return True
+
+def read_activity(username, activity):
+    try:
+        # Read the CSV file
+        df = pd.read_csv(FILE_PATH)
+        
+        # Check if the required columns exist
+        required_columns = {'username', 'activity', 'weight', 'workout_duration'}
+        if not required_columns.issubset(df.columns):
+            raise ValueError(f"The CSV file must contain the columns: {required_columns}")
+        
+        # Filter rows matching the specified username and activity
+        filtered_df = df[(df['username'] == username) & (df['activity'] == activity)]
+        
+        # Extract weight and workout_duration values into lists
+        weight_values = filtered_df['weight'].tolist()
+        workout_duration_values = filtered_df['workout_duration'].tolist()
+        
+        # Return the nested list
+        return [weight_values, workout_duration_values]
+    
+    except FileNotFoundError:
+        print(f"Error: The file {FILE_PATH} does not exist.")
+        return []
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
+
 
