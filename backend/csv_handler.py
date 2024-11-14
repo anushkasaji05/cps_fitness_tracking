@@ -1,4 +1,3 @@
-
 import pandas as pd
 import os
 # File path for the CSV file
@@ -113,5 +112,6 @@ def read_activity(username, activity):
     except Exception as e:
         print(f"An error occurred: {e}")
         return []
+
 
 
