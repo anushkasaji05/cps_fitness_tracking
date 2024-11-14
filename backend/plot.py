@@ -17,7 +17,7 @@ def plot_sleep_duration(username, days, duration):
     plt.xlabel("Days")
     plt.ylabel("Sleep Duration (in hours)")
     plt.title(f"Sleep Duration for {username}")
-    plt.savefig("../output/sleep.jpg")
+    plt.savefig("output/sleep.jpg")
     plt.close()
 
 
@@ -34,7 +34,7 @@ def plot_water_intake(username, days, glasses):
     plt.xlabel("Days")
     plt.ylabel("Water Intake (in glasses)")
     plt.title(f"Water Intake for {username}")
-    plt.savefig("../output/water.jpg")
+    plt.savefig("output/water.jpg")
     plt.close()
 
 
@@ -51,7 +51,7 @@ def plot_workout_duration(username, days, duration):
     plt.xlabel("Days")
     plt.ylabel("Workout Duration (in hours)")
     plt.title(f"Workout Duration for {username}")
-    plt.savefig("../output/workout.jpg")
+    plt.savefig("output/workout.jpg")
     plt.close()
 
 

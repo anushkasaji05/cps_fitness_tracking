@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 # File path for the CSV file
-FILE_PATH = '../input/data.csv'
+FILE_PATH = 'input/data.csv'
 
 def insert_record(record):
     """
