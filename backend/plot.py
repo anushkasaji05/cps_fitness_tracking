@@ -1,39 +1,59 @@
-import numpy as np
 import matplotlib.pyplot as plt
+from backend.csv_handler import read_data
 
 plt.style.use('fivethirtyeight')
 
 
-def sleep():
-    days = np.arange(1, 10)
-    hours = np.arange(1, 10)
+def plot_sleep_duration(username, days, duration):
+    data = read_data()
+
+    for i in range(len(data)):
+        if (data[i][0] == username):
+            days.append(data[i][1])
+            duration.append(float(data[i][3]))
+
     plt.figure(figsize=(10, 10))
-    plt.bar(days, hours)
+    plt.bar(days, duration)
     plt.xlabel("Days")
-    plt.ylabel("Sleep (in hours)")
-    plt.savefig("sleep.jpg")
+    plt.ylabel("Sleep Duration (in hours)")
+    plt.title(f"Sleep Duration for {username}")
+    plt.savefig("../output/sleep.jpg")
+    plt.close()
 
 
-def water_intake():
-    days = np.arange(1, 10)
-    glasses = np.arange(1, 10)
+def plot_water_intake(username, days, glasses):
+    data = read_data()
+
+    for i in range(len(data)):
+        if (data[i][0] == username):
+            days.append(data[i][1])
+            glasses.append(float(data[i][4]))
+
     plt.figure(figsize=(10, 10))
     plt.bar(days, glasses)
     plt.xlabel("Days")
-    plt.ylabel("Water Intake (in number of glasses)")
-    plt.savefig("water.jpg")
+    plt.ylabel("Water Intake (in glasses)")
+    plt.title(f"Water Intake for {username}")
+    plt.savefig("../output/water.jpg")
+    plt.close()
 
 
-def workout_duration():
-    days = np.arange(1, 10)
-    duration = np.arange(1, 10)
+def plot_workout_duration(username, days, duration):
+    data = read_data()
+
+    for i in range(len(data)):
+        if (data[i][0] == username):
+            days.append(data[i][1])
+            duration.append(float(data[i][6]))
+
     plt.figure(figsize=(10, 10))
     plt.bar(days, duration)
     plt.xlabel("Days")
     plt.ylabel("Workout Duration (in hours)")
-    plt.savefig("duration.jpg")
+    plt.title(f"Workout Duration for {username}")
+    plt.savefig("../output/workout.jpg")
+    plt.close()
 
 
-sleep()
-water_intake()
-workout_duration()
+
+

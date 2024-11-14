@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 # File path for the CSV file
-FILE_PATH = 'input/data.csv'
+FILE_PATH = '../input/data.csv'
 
 def insert_record(record):
     """
@@ -106,6 +106,26 @@ def read_activity(username, activity):
         # Return the nested list
         return [weight_values, workout_duration_values]
     
+    except FileNotFoundError:
+        print(f"Error: The file {FILE_PATH} does not exist.")
+        return []
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
+
+def read_data():
+    """
+    Reads all data from the CSV file and returns it as a list of lists.
+    
+    :return: List of lists where each inner list represents a row in the CSV file.
+    """
+    try:
+        # Load the CSV file into a DataFrame
+        df = pd.read_csv(FILE_PATH)
+        
+        # Convert the DataFrame to a list of lists
+        data = df.values.tolist()
+        return data
     except FileNotFoundError:
         print(f"Error: The file {FILE_PATH} does not exist.")
         return []
