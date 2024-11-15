@@ -32,7 +32,7 @@ def plot_water_intake(username, days, glasses):
     plt.figure(figsize=(10, 10))
     plt.bar(days, glasses)
     plt.xlabel("Days")
-    plt.ylabel("Water Intake (in glasses)")
+    plt.ylabel("Water Intake (in litres)")
     plt.title(f"Water Intake for {username}")
     plt.savefig("output/water.jpg")
     plt.close()

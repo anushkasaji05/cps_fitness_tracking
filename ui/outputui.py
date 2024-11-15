@@ -1,4 +1,3 @@
-import csv
 import tkinter as tk
 from backend.csv_handler import read_activity
 from datetime import datetime
