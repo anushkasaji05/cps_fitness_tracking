@@ -48,11 +48,11 @@ def display_results(username_entry, activity_entry, result_label):
     # Fetch data using read_activity
     activity_data = read_activity(username, activity)
     if not activity_data or not activity_data[0]:
-        result_label.config(text="No data found for this user and activity.", fg="red")
+        result_label.config(text="No data found for this user and activity.", fg="black")
         return
 
     # Calculate total calories burned
     total_calories = calculate_calories(activity, activity_data[0], activity_data[1])
 
     # Display the result
-    result_label.config(text=f"Total Calories burned for {activity}: {total_calories} calories", fg="lightgreen")
+    result_label.config(text=f"Total Calories burned for {activity}: {total_calories} calories", fg="black")
